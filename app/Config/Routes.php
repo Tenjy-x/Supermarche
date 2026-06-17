@@ -9,3 +9,6 @@ $routes->get('/', 'Home::index');
 $routes->post('/caisse/selectionner' , 'Home::Achat');
 $routes->get('/achat/index' , 'AchatController::Index');
 $routes->post('/achat/ajouter' , 'AchatController::AddPanier');
+$routes->get('/login' , 'AuthController::login');
+$routes->post('/login' , 'AuthController::doLogin');
+$routes->get('/logout' , 'AuthController::logout');
