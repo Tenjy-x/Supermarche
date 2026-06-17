@@ -52,6 +52,76 @@
         </div>
     </div>
 
+    <!-- Liste des achats -->
+    <div class="col-md-7">
+        <div class="card">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0">
+                    <i class="fas fa-receipt"></i> Détails de l'Achat
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th><i class="fas fa-box"></i> Produit</th>
+                                <th class="text-end"><i class="fas fa-tag"></i> Prix Unit</th>
+                                <th class="text-center"><i class="fas fa-sort-numeric-up"></i> Qté</th>
+                                <th class="text-end"><i class="fas fa-money-bill-wave"></i> Montant</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if (!empty($achats)): ?>
+                                <?php foreach ($achats as $achat): ?>
+                                    <tr>
+                                        <td>
+                                            <strong><?= $achat['designation'] ?></strong>
+                                        </td>
+                                        <td class="text-end">
+                                            <?= number_format($achat['prix'], 0, ',', ' ') ?>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="badge bg-primary"><?= $achat['quantite'] ?></span>
+                                        </td>
+                                        <td class="text-end fw-bold">
+                                            <?= number_format($achat['montant'], 0, ',', ' ') ?>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="4" class="text-center py-4 text-muted">
+                                        <i class="fas fa-shopping-basket fa-2x d-block mb-2"></i>
+                                        Aucun achat en cours
+                                    </td>
+                                </tr>
+                            <?php endif; ?>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" class="text-end">
+                                    <strong><i class="fas fa-calculator"></i> Total</strong>
+                                </td>
+                                <td class="text-end total-amount">
+                                    <?= number_format($total, 0, ',', ' ') ?> Ar
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                
+                <?php if (!empty($achats)): ?>
+                    <div class="alert alert-info mt-3">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>Total des achats:</strong> 
+                        <span class="total-amount"><?= number_format($total, 0, ',', ' ') ?> Ar</span>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <?php include 'footer.php'; ?>

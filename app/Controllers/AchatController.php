@@ -10,11 +10,14 @@ class AchatController extends BaseController
     public function Index() {
         $produitModel = new ProduitModel();
         $caisse = session()->get('caisse');
+        $produitAchatModel = new Produit_AchatModel();
+        $total = $produitAchatModel->getSommeTotal();
 
         $produits = $produitModel->findAll();
         return view('saisie',[
             'produits' => $produits,
-            'caisse' => $caisse
+            'caisse' => $caisse,
+            'total' => $total
         ]);
         
     }
