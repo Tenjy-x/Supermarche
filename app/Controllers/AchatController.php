@@ -24,19 +24,34 @@ class AchatController extends BaseController
 
     public function AddPanier() {
         $ProduitAchatModel = new Produit_AchatModel();
+        $AchatModel = new AchatModel();
         $produitModel = new ProduitModel();
         $ProduitId = $this->request->getPost('produit');
-        // $Produit = $produitModel->find($ProduitId);
-
         $quantite = $this->request->getPost('quantite');
 
+        $session = session();
+        $idAchat = $session->get('idAchat');
+
+        if (!$idAchat) {
+            $caisse = $session->get('caisse');
+            $idCaisse = is_array($caisse) ? ($caisse['id'] ?? null) : $caisse;
+
+            $idAchat = $AchatModel->insert([
+                'id_client'   => 1,
+                'id_caisse'   => $idCaisse ?? 1,
+                'Date_achat'  => date('Y-m-d H:i:s')
+            ]);
+
+            $session->set('idAchat', $idAchat);
+        }
+
         $data = [
-            'id_produit' => $ProduitId,
-            'Quantite_achetee'   => $quantite
+            'id_produit'      => $ProduitId,
+            'Quantite_achetee'=> $quantite,
+            'idAchat'         => $idAchat
         ];
-        print_r($data);
+
         $ProduitAchatModel->insert($data);
         return redirect()->to('/achat/index');
-
     }
 }

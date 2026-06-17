@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class Produit_AchatModel extends Model {
     protected $table = 'Produit_Achat';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['id_produit' , 'Quantite_achetee'];
+    protected $allowedFields = ['id_produit' , 'Quantite_achetee', 'idAchat'];
 
     public function getAllProduit_Achat() {
         return $this->findAll();
