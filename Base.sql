@@ -14,15 +14,17 @@ CREATE TABLE Produit_Achat(
     id INTEGER PRIMARY KEY,
     id_produit INTEGER NOT NULL,
     Quantite_achetee INTEGER NOT NULL,
+    idAchat INTEGER NOT NULL,
+    FOREIGN KEY (id_produit) REFERENCES Produits(id),
+    FOREIGN KEY (idAchat) REFERENCES Achat(id)
 );
 
 CREATE TABLE Achat (
     id INTEGER PRIMARY KEY,
-    id_produit_Achat INTEGER NOT NULL,
+    -- id_produit_Achat INTEGER NOT NULL,
     id_client INTEGER NOT NULL,
     id_caisse INTEGER NOT NULL,
     Date_achat DATETIME NOT NULL,
-    FOREIGN KEY (id_produit_Achat) REFERENCES Produit_Achat(id),
     FOREIGN KEY (id_caisse) REFERENCES Caisse(id)
 );
 
@@ -40,7 +42,6 @@ CREATE TABLE Clients (
     Prenom VARCHAR(255) NOT NULL,
     Email VARCHAR(255) NOT NULL
 );
-
 
 
 
