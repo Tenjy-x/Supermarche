@@ -15,7 +15,9 @@ class Home extends BaseController
     }
 
     public function Achat() {
-        $caisse = $this->request->getPost('caisse');
+        $caisseModel=new CaisseModel();
+        $caisseId = $this->request->getPost('caisse');
+        $caisse = $caisseModel->find($caisseId);
         session()->set('caisse' , $caisse);
         return redirect()->to('/achat/index');
     }

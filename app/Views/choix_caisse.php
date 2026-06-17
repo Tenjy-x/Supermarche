@@ -17,7 +17,7 @@
                         <select name="caisse" class="form-select form-select-lg" id="caisse_id" name="caisse_id" required>
                             <option value="">-- Choisir une caisse --</option>
                             <?php foreach ($caisses as $caisse): ?>
-                                <option value="<?= $caisse['id'] ?>">
+                                <option value="<?= $caisse['id']?>">
                                     <i class="fas fa-cash-register"></i> <?= $caisse['numero_caisse'] ?>
                                 </option>
                             <?php endforeach; ?>

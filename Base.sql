@@ -2,6 +2,7 @@ CREATE TABLE Produits (
     id INTEGER PRIMARY KEY,
     Nom VARCHAR(255) NOT NULL,
     Prix DECIMAL(10, 2) NOT NULL,
+    Designation VARCHAR(255),
     Quantite_en_stock INTEGER NOT NULL
 );
 
@@ -34,6 +35,12 @@ CREATE TABLE Historique (
     FOREIGN KEY (id_achat) REFERENCES Achat(id)
 );
 
+CREATE TABLE Clients (
+    id INTEGER PRIMARY KEY,
+    Nom VARCHAR(255) NOT NULL,
+    Prenom VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) NOT NULL
+);
 
 
 
