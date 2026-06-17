@@ -21,4 +21,6 @@ class Home extends BaseController
         session()->set('caisse' , $caisse);
         return redirect()->to('/achat/index');
     }
+
+    
 }

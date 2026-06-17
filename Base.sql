@@ -14,7 +14,6 @@ CREATE TABLE Produit_Achat(
     id INTEGER PRIMARY KEY,
     id_produit INTEGER NOT NULL,
     Quantite_achetee INTEGER NOT NULL,
-    FOREIGN KEY (id_produit) REFERENCES Produits(id)
 );
 
 CREATE TABLE Achat (

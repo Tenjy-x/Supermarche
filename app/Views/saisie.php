@@ -17,7 +17,7 @@
                         <label for="produit_id" class="form-label">
                             <i class="fas fa-box"></i> Produit
                         </label>
-                        <select class="form-select" id="produit_id" name="produit_id" required>
+                        <select name = "produit" class="form-select" id="produit_id" name="produit_id" required>
                             <option value="">-- Choisir un produit --</option>
                             <?php foreach ($produits as $produit): ?>
                                 <option value="<?= $produit['id'] ?>">
