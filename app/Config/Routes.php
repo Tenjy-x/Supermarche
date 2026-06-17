@@ -8,3 +8,4 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->post('/caisse/selectionner' , 'Home::Achat');
 $routes->get('/achat/index' , 'AchatController::Index');
+$routes->post('/achat/ajouter' , 'AchatController::AddPanier');
